@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Результаты</title>
+</head>
+<body>
+    <div>
+        <p>@Html.ActionLink("Главная страница", "Index")</p>
+        <p>@Html.Label("Процент правильных ответов: " + ((double)@ViewBag.TrueValuesPercantage)*100)</p>
+        @if (((double)@ViewBag.TrueValuesPercantage) != 1)
+        {
+            <p>@Html.Label("Список неправильных ответов")</p><br />
+        }
+        @foreach (MultiplicationTable.Models.Exercise Item in ViewBag.List)
+        {
+            if (@Item.TrueValue != @Item.CurrentValue)
+            {
+               <p>@Html.Label(@Item.Operation + " " + @Item.CurrentValue.ToString())</p>
+               <p>@Html.Label("Правильное значение: " + @Item.TrueValue.ToString())</p>
+               <br />
+            }
+        }
+    </div>
+</body>
+</html>

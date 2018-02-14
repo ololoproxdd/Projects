@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Текущая сессия</title>
+</head>
+<body>
+    <div>
+        <h3>Текущее упражнение</h3>
+        @using (Html.BeginForm("Exercises", "Home", FormMethod.Post))
+        {
+            <p>@Html.Label((string)@ViewBag.Operation) @Html.TextBox("CurrentValue", "", new { @type = "number", @required = "true" }) </p>
+            <p><input type="submit" value="Проверить" /></p>
+        }
+    </div>  
+</body>
+</html>

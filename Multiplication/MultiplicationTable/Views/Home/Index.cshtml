@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Главная страница</title>
+</head>
+<body>
+    <div>
+        <h3>Главная страница</h3>
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td><p>@Html.Label("Введите список множителей через запятую:")</p></td>
+                    <td>@Html.TextBox("StrMultiplierList", "", new { @required = "true" })</td>
+                </tr>
+                <tr>
+                    <td><p>@Html.Label("Введите верхнюю границу второго множителя:")</p></td>
+                    <td>@Html.TextBox("UpperBound", "", new { @type = "number", @required = "true" })</td>
+                </tr>
+                <tr>
+                    <td><p>@Html.Label("Введите количество упражнений в сессии:")</p></td>
+                    <td>@Html.TextBox("Amount", "", new { @type = "number", @required = "true" })</td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Начать"/></td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
